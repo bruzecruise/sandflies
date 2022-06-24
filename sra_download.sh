@@ -9,7 +9,7 @@
 conda activate SRAtools
 
 DIR="/afs/crc.nd.edu/group/Leishlab/UpdatedPopGen"
-THREAD= "24"
+THREAD="24"
 
 
 # this loop cats file then for each line in the file 
@@ -18,7 +18,7 @@ THREAD= "24"
 cat SRA_download.txt | while read line;
 do;
    prefetch ${line};
-   fasterq-dump --threads 12 ${line};
+   fasterq-dump --threads ${THREAD} ${line};
    gzip ${line}_*;
    rm ${line};
 done
