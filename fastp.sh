@@ -24,7 +24,7 @@ printf ">polyA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n" >> fastp_adap
 # this loop runs through all files in the RAW_fastq folder
 for FILE in $(find ../RAW_fastq/*_1.fastq.gz | sed 's/_1.fastq.gz//' | sed 's/\.\.\/RAW_fastq\///');
 do 
-    fastp --thread ${THREAD} -q 20 -l 25 --in1 ../RAW_fastq/${FILE}_1.fastq.gz --in2 ../RAW_fastq/${FILE}_2.fastq.gz --out1 trim1.${FILE}_1.fastq.gz --out2 trim1.${FILE}_2.fq.gz --adapter_fasta fastp_adapter.fasta; 
+    fastp --thread ${THREAD} -q 20 -l 25 --in1 ../RAW_fastq/${FILE}_1.fastq.gz --in2 ../RAW_fastq/${FILE}_2.fastq.gz --out1 trim1.${FILE}_1.fastq.gz --out2 trim1.${FILE}_2.fq.gz --adapter_fasta fastp_adapter.fasta -h ${FILE}.html; 
 done
 
 echo "woo done"
